@@ -24,12 +24,14 @@
 
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <script src="./js/accordion-pre-set.js"></script>
 </head>
 
 <body>
 
     <?php
-    if (isset($_GET['success'])) {
+    if (isset ($_GET['success'])) {
         // Exibe um alerta Bootstrap com a mensagem de sucesso
         echo '<div id="success-alert" class="alert alert-success fixed-alert" role="alert">' . $_GET['success'] . '</div>';
     }
@@ -47,18 +49,40 @@
                 <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#contato">Fale conosco</a></li>
                 <li><a href="denuncia.php">Denúncia anônima</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
             </ul>
         </nav>
+
+        <button class="toggle-menu" id="toggle-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
 
     <main>
 
         <section id="banner-principal">
-            <img src="./img/banner.png" alt="Banner representando funcionário do comércio">
-            <div class="overlay"></div>
+            <img id="imagem-fade" src="./img/comerciaria_pronto.jpg" alt="Comerciária Supermercado">
             <div class="content">
-                <h1 class="fade-in-element">Sindicato dos Empregados em<br>Supermercados no Estado de Sergipe</h1>
+                <h1 class="fade-in-element">Sindicato dos Empregados<br>em Supermercados no<br>Estado de Sergipe</h1>
+                <p class="fade-in-element">Juntos lutamos pelos direitos e contra abusos ao trabalahador<br>no setor de supermercados e lojas de varejo.</p>
+                <div class="opcoes">
+                    <button id="saiba-mais" href="#sobre">
+                        <div>SAIBA MAIS</div>
+                        <span class="line vertical1"></span>
+                        <span class="line vertical3"></span>
+                        <span class="line horizontal1"></span>
+                        <span class="line vertical2"></span>
+                        <span class="line vertical4"></span>
+                        <span class="line horizontal2"></span>
+                    </button>
+                    <div class="redes-sociais">
+                        <button><i class="fa-brands fa-facebook"></i></button>
+                        <button><i class="fa-brands fa-instagram"></i></button>
+                        <button><i class="fa-solid fa-phone"></i></button>
+                    </div>
+                </div>
             </div>
+            <div class="fade-bottom"></div>
         </section>
 
         <section id="sobre">
@@ -123,6 +147,9 @@
                     </div>
                 </div>
             </div>
+            <div class="ver-mais">
+                <a href="diretoria.html">Ver mais</a>
+            </div>
         </section>
 
         <section id="galeria">
@@ -137,29 +164,33 @@
                         $dados = json_decode($dados, true);
 
                         // Verifica se os dados foram carregados com sucesso e se não estão vazios
-                        if ($dados !== null && !empty($dados)) {
+                        if ($dados !== null && !empty ($dados)) {
                             // Itera sobre os dados para criar os álbuns dinamicamente, começando do último elemento
                             for ($i = count($dados) - 1; $i >= 0; $i--) {
                                 $album = $dados[$i];
-                                ?>
-                                <div class="album">
-                                    <div class="album-container">
-                                        <div class="album-overlay"></div>
-                                        <img src="<?php echo $album['images'][0]['filename']; ?>" alt="">
-                                        <div class="album-info">
-                                            <span class="titulo-album">
-                                                <?php echo $album['title']; ?>
-                                            </span>
-                                            <div class="bottom-album">
-                                                <span class="numero-fotos">
-                                                    <?php echo count($album['images']); ?> fotos
+                                // Verifica se o álbum não está oculto
+                                if (!$album['hidden']) {
+                                    ?>
+                                    <div class="album">
+                                        <div class="album-container">
+                                            <div class="album-overlay"></div>
+                                            <img src="<?php echo $album['images'][0]['filename']; ?>"
+                                                alt="<?php echo $album['title']; ?>">
+                                            <div class="album-info">
+                                                <span class="titulo-album">
+                                                    <?php echo $album['title']; ?>
                                                 </span>
-                                                <span class="ver-fotos">Ver album</span>
+                                                <div class="bottom-album">
+                                                    <span class="numero-fotos">
+                                                        <?php echo count($album['images']); ?> fotos
+                                                    </span>
+                                                    <span class="ver-fotos">Ver album</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php
+                                    <?php
+                                }
                             }
                         } else {
                             echo "<p>Nenhum álbum encontrado.</p>";
@@ -230,11 +261,88 @@
             </div>
         </section>
 
+        <!-- Seção de FAQ -->
+        <section id="FAQ" class="fade-in-element">
+
+            <h1 class="titulo fade-in-element">DÚVIDAS FREQUENTES</h1>
+
+            <div style="width: fit-content; margin: 0 auto;">
+
+                <ul id="lista-perguntas" class="accordion-1">
+                    <div class="pergunta">
+                        <li>
+                            <p>O que é o @Curso?</p>
+                            <svg width="18" height="12" viewBox="0 0 42 25">
+                                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"></path>
+                            </svg>
+                        </li>
+                        <div class="resposta">
+                            <br>
+                            <p>O melhor curso que há.</p>
+                        </div>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <p>O que acontece após o pagamento?</p>
+                            <svg width="18" height="12" viewBox="0 0 42 25">
+                                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"></path>
+                            </svg>
+                        </li>
+                        <div class="resposta">
+                            <br>
+                            <p>Após clicar no botão "Se Inscrever", você será direcionado(a) para a página da Kiwify
+                                onde deverá inserir os dados de pagamento em cartão, boleto ou Pix.</p><br>
+                            <p>Assim que o pagamento for confirmado pelo banco você receberá um e-mail com uma mensagem
+                                de
+                                boas-vindas e com os dados de acesso da Mentoria. Pronto, depois é só aproveitar!</p>
+                            <br>
+                            <p>Caso tenha qualquer dúvida é só escrever pra gente: contato@paidorec.com</p>
+                        </div>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <p>Não tenho ideias para fazer reels, consigo aproveitar a mentoria?</p>
+                            <svg width="18" height="12" viewBox="0 0 42 25">
+                                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"></path>
+                            </svg>
+                        </li>
+                        <div class="resposta">
+                            <br>
+                            <p>Com certeza! Exploramos muito essa questão no treinamento. Você também terá todo suporte
+                                especializado dentro da plataforma. Criatividade se aprende e se exercita. Nesse curso
+                                você
+                                vai
+                                ter uma ótima base e bons exemplos para aplicar no seu dia dia.</p>
+                        </div>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <p>Preciso ter um celular top de linha para aplica o método?</p>
+                            <svg width="18" height="12" viewBox="0 0 42 25">
+                                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"></path>
+                            </svg>
+                        </li>
+                        <div class="resposta">
+                            <br>
+                            <p>Na verdade não. Você vai ver que as dicas servem para qualquer modelo, não deixe isso
+                                limitar
+                                seu
+                                conteúdo. Nossas aulas foram formatadas para atender as necessidades de criação, nos
+                                preocupamos
+                                em validar as técnicas em diversos modelos de celular e sistemas operacionais.</p>
+                        </div>
+                    </div>
+                </ul>
+
+            </div>
+
+        </section>
+
     </main>
 
     <footer>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5" style="margin-bottom: 60px;">
                 <div class="logo2">
                     <img src="./img/logo_pb.jpg" alt="SESES - logo (P&B)">
                 </div>
@@ -242,20 +350,61 @@
                         target="_blank">Simplify Web</a></p>
             </div>
             <div class="col-md-7" style="display: flex;">
-                <div class="content">
-                    <h4>Contato —</h4>
-                    <p></p>
-                    <p><i class="fa-solid fa-envelope"></i> seses@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i> (79) 3333-3333</p>
-                </div>
-                <div class="content">
-                    <h4>Localização —</h4>
-                    <p>Avenida Sete de Setembro, 675</p>
-                    <p>Edf. Centerville, 7 andar, salas 701-703, Piedade, Salvador</p>
+                <div class="row">
+                    <div class="col-md-8" style="display: flex; margin-bottom: 60px; flex: 1;">
+                        <div class="content">
+                            <h4>Contato —</h4>
+                            <p></p>
+                            <p><i class="fa-solid fa-envelope"></i> seses@gmail.com</p>
+                            <p><i class="fa-solid fa-phone"></i> (79) 3333-3333</p>
+                        </div>
+                        <div class="content">
+                            <h4>Localização —</h4>
+                            <p>Avenida Sete de Setembro, 675</p>
+                            <p>Edf. Centerville, 7 andar, salas 701-703, Piedade, Salvador</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 vip-box">
+                        <a href="#">
+                            <img src="./img/vip.png" style="margin: auto; opacity: 0.6;" alt="VIP Informática">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=5579999999999" class="whatsapp-button" target="_blank">
+        <img src="./img/whatsapp.png" alt="Ícone do WhatsApp">
+    </a>
+
+    <menu>
+        <div class="close-popup">
+            <div class="close" onmouseover="startAnimation()" onmouseout="resetAnimation()">
+                <svg class="close-ring" width="61" height="61">
+                    <circle class="close-ring__circle" id="closeCircle" stroke="#fff" stroke-width="2"
+                        fill="transparent" r="28" cx="30" cy="30" />
+                    <circle class="close-ring__circle-full" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2"
+                        fill="transparent" r="28" cx="30" cy="30" />
+                </svg>
+                <svg class="x" viewBox="0 0 12 12" style="height: 12px; width: 12px;">
+                    <path stroke="rgb(180, 180, 180)" fill="rgb(180, 180, 180)"
+                        d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">SOBRE NÓS</a></li>
+                <li><a href="#sindicatos">SINDICATOS</a></li>
+                <li><a href="#galeria">GALERIA</a></li>
+                <li><a href="#contato">FALE CONOSCO</a></li>
+                <li><a href="denuncia.php">DENÚNCIA ANÔNIMA</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
+            </ul>
+        </nav>
+    </menu>
 
     <div class="albumPopup" id="album">
         <div style="position: relative; width: 100%; height: 100vh;">
@@ -360,12 +509,15 @@
     </script>
 
     <script src="./js/header-effect.js"></script>
+    <script src="./js/toggle-menu.js"></script>
+    <script src="./js/fade-img.js"></script>
     <script src="./js/fade-in-element.js"></script>
     <script src="./js/scroll-to-section.js"></script>
     <script src="./js/section-view.js"></script>
     <script src="./js/carrossel-galeria.js"></script>
     <script src="./js/album-popup.js"></script>
     <script src="./js/close-animation.js"></script>
+    <script src="./js/accordion.js"></script>
     <script src="./js/contato-form.js"></script>
     <script src="./js/carrossel-fotos.js"></script>
 

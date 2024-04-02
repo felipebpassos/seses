@@ -17,8 +17,11 @@ $(document).ready(function () {
             // Atualiza o carrossel de fotos com as imagens do álbum selecionado
             var fotosHTML = '';
             $.each(album.images, function (index, photo) {
-                fotosHTML += '<li class="foto"><img src="' + photo.filename + '" alt="' + photo.caption + '"></li>';
-            });
+                // Verifica se a foto não está oculta antes de adicioná-la à lista de fotos
+                if (!photo.hidden) {
+                    fotosHTML += '<li class="foto"><img src="' + photo.filename + '" alt="' + photo.caption + '"></li>';
+                }
+            });            
             $('.fotos-lista').html(fotosHTML);
 
             // Adiciona a classe "selecionada" à primeira foto por padrão

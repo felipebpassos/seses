@@ -15,7 +15,7 @@
     <meta property="og:title" content="Sindicato dos Empregados em Supermercados no Estado de Sergipe | SESES">
     <meta property="og:description" content="">
 
-    <title>Sindicato dos Empregados em Supermercados no Estado de Sergipe | SESES</title>
+    <title>Denúncia Anônima | SESES</title>
 
     <link rel="icon" href="">
 
@@ -42,13 +42,18 @@
 
         <nav>
             <ul>
-                <li><a href="index.php">Sobre nós</a></li>
-                <li><a href="index.php">Diretoria</a></li>
-                <li><a href="index.php">Galeria</a></li>
-                <li><a href="index.php">Fale conosco</a></li>
+                <li><a href="index.php#sobre">Sobre nós</a></li>
+                <li><a href="index.php#diretoria">Diretoria</a></li>
+                <li><a href="index.php#galeria">Galeria</a></li>
+                <li><a href="index.php#contato">Fale conosco</a></li>
                 <li><a href="#">Denúncia anônima</a></li>
+                <li><a href="index.php#FAQ">FAQ</a></li>
             </ul>
         </nav>
+
+        <button class="toggle-menu" id="toggle-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
 
     <main>
@@ -79,9 +84,23 @@
 
     </main>
 
+    <menu>
+        <nav>
+            <ul>
+                <li><a href="index.php#sobre">SOBRE NÓS</a></li>
+                <li><a href="index.php#sindicatos">SINDICATOS</a></li>
+                <li><a href="index.php#galeria">GALERIA</a></li>
+                <li><a href="index.php#contato">FALE CONOSCO</a></li>
+                <li><a href="denuncia.php">DENÚNCIA ANÔNIMA</a></li>
+                <li><a href="index.php#FAQ">FAQ</a></li>
+            </ul>
+        </nav>
+    </menu>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <script src="./js/toggle-menu.js"></script>
     <script src="./js/fade-in-element.js"></script>
     <script src="./js/denuncia-form.js"></script>
 

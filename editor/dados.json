@@ -5,15 +5,15 @@
             {
                 "filename": ".\/editor\/images\/65e4245e605bc_img3.png",
                 "caption": "homem falando",
-                "hidden": "false"
+                "hidden": false
             },
             {
                 "filename": ".\/editor\/images\/65e4246ca425a_img4.png",
                 "caption": "diretoria",
-                "hidden": "false"
+                "hidden": false
             }
         ],
-        "hidden": "false"
+        "hidden": false
     },
     {
         "title": "Album 02",
@@ -21,10 +21,10 @@
             {
                 "filename": ".\/editor\/images\/65e424c4b2850_img2.png",
                 "caption": "exemplo",
-                "hidden": "false"
+                "hidden": false
             }
         ],
-        "hidden": "true"
+        "hidden": false
     },
     {
         "title": "Album 03",
@@ -32,14 +32,25 @@
             {
                 "filename": ".\/editor\/images\/65e424903fe91_img1.png",
                 "caption": "grupo",
-                "hidden": "false"
+                "hidden": false
             },
             {
                 "filename": ".\/editor\/images\/65e424b158afc_img2.png",
                 "caption": "discurso",
-                "hidden": "false"
+                "hidden": false
             }
         ],
-        "hidden": "false"
+        "hidden": false
+    },
+    {
+        "title": "Alisson",
+        "images": [
+            {
+                "filename": ".\/editor\/images\/65e4d7ee51e85_img3.png",
+                "caption": "nada",
+                "hidden": false
+            }
+        ],
+        "hidden": false
     }
 ]

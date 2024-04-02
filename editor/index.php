@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['album_title'])) {
     $novoAlbum = [
         'title' => $_POST['album_title'],
         'images' => [],
-        'hidden' => isset($_POST['hidden']) ? 'true' : 'false'
+        'hidden' => isset($_POST['hidden']) ? true : false
     ];
     $dados[] = $novoAlbum;
     salvarDados($dados);
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['album_id']) && isset($
     $albumId = $_POST['album_id'];
     $imageFile = $_FILES['image'];
     $caption = $_POST['caption'];
-    $hidden = isset($_POST['hidden']) ? 'true' : 'false';
+    $hidden = isset($_POST['hidden']) ? true : false;
 
     // Verifica se um arquivo foi selecionado
     if (!empty($imageFile['name'])) {
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $dados = carregarDados();
 
     // Define o status de ocultação do álbum como "true"
-    $dados[$albumId]['hidden'] = 'true';
+    $dados[$albumId]['hidden'] = true;
 
     // Salva os dados atualizados
     salvarDados($dados);
@@ -159,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $dados = carregarDados();
 
     // Define o status de ocultação do álbum como "false"
-    $dados[$albumId]['hidden'] = 'false';
+    $dados[$albumId]['hidden'] = false;
 
     // Salva os dados atualizados
     salvarDados($dados);
@@ -193,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $dados = carregarDados();
 
     // Define o status de ocultação da foto como "false" (visível)
-    $dados[$albumId]['images'][$photoIndex]['hidden'] = 'false';
+    $dados[$albumId]['images'][$photoIndex]['hidden'] = false;
 
     // Salva os dados atualizados
     salvarDados($dados);
@@ -307,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                             <?php echo $album['title']; ?>
                         </h3>
                         <button class="btn btn-danger" onclick="deleteAlbum(<?php echo $albumIndex; ?>)">Excluir Álbum</button>
-                        <?php if ($album['hidden'] === 'true'): ?>
+                        <?php if ($album['hidden']): ?>
                             <button class="btn btn-secondary" onclick="unhideAlbum(<?php echo $albumIndex; ?>)">Desocultar
                                 Álbum</button>
                         <?php else: ?>
@@ -320,7 +320,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                             $hiddenPhotos = [];
                             if (isset($album['images']) && is_array($album['images'])) {
                                 foreach ($album['images'] as $photoIndex => $photo) {
-                                    if ($photo['hidden'] === 'false') {
+                                    if (!$photo['hidden']) {
                                         $visiblePhotos[] = [$photoIndex, $photo];
                                     } else {
                                         $hiddenPhotos[] = [$photoIndex, $photo];
