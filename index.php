@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="PRODUTO NÃO PAGO EM SUA TOTALIDADE - PROPRIEDADE INTELECTUAL DE FELIPE BARRETO PASSOS, PROTEGIDO POR LEI.">
+    <meta name="description" content="PRODUTO NÃO PAGO EM SUA TOTALIDADE - PROPRIEDADE INTELECTUAL DE FELIPE BARRETO PASSOS, PROTEGIDO POR LEI.">
     <meta name="author" content="Felipe Passos | Simplify Web">
-    <meta name="keywords"
-        content="sindicato, sergipano, comércio, supermercados, supermercado, mercado, trabalho, trabalhadores, comerciários, empregados, trabalhadores, denúncia, denunciar, direitos, sergipe, SE">
+    <meta name="keywords" content="sindicato, sergipano, comércio, supermercados, supermercado, mercado, trabalho, trabalhadores, comerciários, empregados, trabalhadores, denúncia, denunciar, direitos, sergipe, SE">
     <meta name="robots" content="index,follow">
 
     <meta property="og:image" content="">
@@ -31,7 +29,7 @@
 <body>
 
     <?php
-    if (isset ($_GET['success'])) {
+    if (isset($_GET['success'])) {
         // Exibe um alerta Bootstrap com a mensagem de sucesso
         echo '<div id="success-alert" class="alert alert-success fixed-alert" role="alert">' . $_GET['success'] . '</div>';
     }
@@ -61,7 +59,9 @@
     <main>
 
         <section id="banner-principal">
-            <img id="imagem-fade" src="./img/comerciaria_pronto.jpg" alt="Comerciária Supermercado">
+            <div class="img-container">
+                <img src="./img/supermercado.jpg" alt="Supermercado">
+            </div>
             <div class="content">
                 <h1 class="fade-in-element">Sindicato dos Empregados<br>em Supermercados no<br>Estado de Sergipe</h1>
                 <p class="fade-in-element">Juntos lutamos pelos direitos e contra abusos ao trabalahador<br>no setor de supermercados e lojas de varejo.</p>
@@ -88,8 +88,7 @@
         <section id="sobre">
             <h1 class="titulo fade-in-element">SOBRE NÓS</h1>
             <div class="row m-auto">
-                <p class="fade-in-element"><img src="XXXXXXXX" width="250"
-                        alt="Mosaico de fotos que representem a instituição FECOMSE">
+                <p class="fade-in-element"><img src="XXXXXXXX" width="250" alt="Mosaico de fotos que representem a instituição FECOMSE">
                     A Federação dos Empregados no Comércio e Serviços do Estado de Sergipe
                     (FECOMSE), entidade representativa dos comerciários de todo o estado, busca, através de
                     convenções
@@ -164,18 +163,17 @@
                         $dados = json_decode($dados, true);
 
                         // Verifica se os dados foram carregados com sucesso e se não estão vazios
-                        if ($dados !== null && !empty ($dados)) {
+                        if ($dados !== null && !empty($dados)) {
                             // Itera sobre os dados para criar os álbuns dinamicamente, começando do último elemento
                             for ($i = count($dados) - 1; $i >= 0; $i--) {
                                 $album = $dados[$i];
                                 // Verifica se o álbum não está oculto
                                 if (!$album['hidden']) {
-                                    ?>
+                        ?>
                                     <div class="album">
                                         <div class="album-container">
                                             <div class="album-overlay"></div>
-                                            <img src="<?php echo $album['images'][0]['filename']; ?>"
-                                                alt="<?php echo $album['title']; ?>">
+                                            <img src="<?php echo $album['images'][0]['filename']; ?>" alt="<?php echo $album['title']; ?>">
                                             <div class="album-info">
                                                 <span class="titulo-album">
                                                     <?php echo $album['title']; ?>
@@ -189,7 +187,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
+                        <?php
                                 }
                             }
                         } else {
@@ -207,8 +205,7 @@
                 </div>
                 <div class="arrow nav-btn-galeria-right">
                     <svg width="12" height="24" viewBox="0 0 8 16" fill="rgb(223, 214, 207)">
-                        <path
-                            d="M7.268 9.547L0 16l4-8-4-8 7.268 6.453C7.715 6.82 8 7.377 8 8c0 .623-.285 1.18-.732 1.547z">
+                        <path d="M7.268 9.547L0 16l4-8-4-8 7.268 6.453C7.715 6.82 8 7.377 8 8c0 .623-.285 1.18-.732 1.547z">
                         </path>
                     </svg>
                 </div>
@@ -222,17 +219,14 @@
                     <form action="formulario.php" method="POST" id="contact-form">
                         <div class="mb-3 row m-auto">
                             <div class="col" style="padding-left: 0;">
-                                <input type="text" class="form-control fade-in-element" id="nome" name="nome"
-                                    placeholder="Nome" required>
+                                <input type="text" class="form-control fade-in-element" id="nome" name="nome" placeholder="Nome" required>
                             </div>
                             <div class="col" style="padding-right: 0;">
-                                <input type="email" class="form-control fade-in-element" id="email" name="email"
-                                    placeholder="Email" required>
+                                <input type="email" class="form-control fade-in-element" id="email" name="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control fade-in-element" id="mensagem" name="mensagem" rows="3"
-                                placeholder="Mensagem" required></textarea>
+                            <textarea class="form-control fade-in-element" id="mensagem" name="mensagem" rows="3" placeholder="Mensagem" required></textarea>
                         </div>
                         <button class="primary-btn fade-in-element" id="enviar">Enviar</button>
                     </form>
@@ -247,8 +241,7 @@
                             <span>Ligue para mais informações</span>
                         </div>
                     </button>
-                    <button class="opcao fade-in-element" id="localizacao"
-                        onclick="window.open('https://www.google.com/maps/place/R.+Prof.+Jos%C3%A9+Le%C3%B4nidas+de+Menezes,+94+-+Grageru,+Aracaju+-+SE,+49025-640/@-10.9373716,-37.0521302,17z/data=!3m1!4b1!4m6!3m5!1s0x71ab392eb2713f3:0x85eb9e7e1df07560!8m2!3d-10.9373716!4d-37.0521302!16s%2Fg%2F11tdlcly37?entry=ttu');">
+                    <button class="opcao fade-in-element" id="localizacao" onclick="window.open('https://www.google.com/maps/place/R.+Prof.+Jos%C3%A9+Le%C3%B4nidas+de+Menezes,+94+-+Grageru,+Aracaju+-+SE,+49025-640/@-10.9373716,-37.0521302,17z/data=!3m1!4b1!4m6!3m5!1s0x71ab392eb2713f3:0x85eb9e7e1df07560!8m2!3d-10.9373716!4d-37.0521302!16s%2Fg%2F11tdlcly37?entry=ttu');">
                         <div class="icone">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
@@ -346,8 +339,7 @@
                 <div class="logo2">
                     <img src="./img/logo_pb.jpg" alt="SESES - logo (P&B)">
                 </div>
-                <p>&copy; 2024 - SESES<br>Desenvolvido por <a href="https://www.instagram.com/simplifyweb/"
-                        target="_blank">Simplify Web</a></p>
+                <p>&copy; 2024 - SESES<br>Desenvolvido por <a href="https://www.instagram.com/simplifyweb/" target="_blank">Simplify Web</a></p>
             </div>
             <div class="col-md-7" style="display: flex;">
                 <div class="row">
@@ -382,14 +374,11 @@
         <div class="close-popup">
             <div class="close" onmouseover="startAnimation()" onmouseout="resetAnimation()">
                 <svg class="close-ring" width="61" height="61">
-                    <circle class="close-ring__circle" id="closeCircle" stroke="#fff" stroke-width="2"
-                        fill="transparent" r="28" cx="30" cy="30" />
-                    <circle class="close-ring__circle-full" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2"
-                        fill="transparent" r="28" cx="30" cy="30" />
+                    <circle class="close-ring__circle" id="closeCircle" stroke="#fff" stroke-width="2" fill="transparent" r="28" cx="30" cy="30" />
+                    <circle class="close-ring__circle-full" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2" fill="transparent" r="28" cx="30" cy="30" />
                 </svg>
                 <svg class="x" viewBox="0 0 12 12" style="height: 12px; width: 12px;">
-                    <path stroke="rgb(180, 180, 180)" fill="rgb(180, 180, 180)"
-                        d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
+                    <path stroke="rgb(180, 180, 180)" fill="rgb(180, 180, 180)" d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
                     </path>
                 </svg>
             </div>
@@ -414,14 +403,11 @@
             <div class="close-popup">
                 <div class="close" onmouseover="startAnimation()" onmouseout="resetAnimation()">
                     <svg class="close-ring" width="61" height="61">
-                        <circle class="close-ring__circle" id="closeCircle" stroke="var(--azul-light)" stroke-width="2"
-                            fill="transparent" r="28" cx="30" cy="30" />
-                        <circle class="close-ring__circle-full" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2"
-                            fill="transparent" r="28" cx="30" cy="30" />
+                        <circle class="close-ring__circle" id="closeCircle" stroke="var(--azul-light)" stroke-width="2" fill="transparent" r="28" cx="30" cy="30" />
+                        <circle class="close-ring__circle-full" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" fill="transparent" r="28" cx="30" cy="30" />
                     </svg>
                     <svg class="x" viewBox="0 0 12 12" style="height: 12px; width: 12px;">
-                        <path stroke="rgb(180, 180, 180)" fill="rgb(180, 180, 180)"
-                            d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
+                        <path stroke="rgb(180, 180, 180)" fill="rgb(180, 180, 180)" d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
                         </path>
                     </svg>
                 </div>
@@ -464,12 +450,12 @@
 
     <script>
         // Aguarda o carregamento completo da página
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Verifica se há uma mensagem de sucesso e exibe o alerta
             if ($('#success-alert').length > 0) {
                 // Adiciona um temporizador para desaparecer após 3 segundos
-                setTimeout(function () {
-                    $('#success-alert').fadeOut('slow', function () {
+                setTimeout(function() {
+                    $('#success-alert').fadeOut('slow', function() {
                         // Remove o elemento após o fade out
                         $(this).remove();
                     });
