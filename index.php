@@ -9,13 +9,13 @@
     <meta name="keywords" content="sindicato, sergipano, comércio, supermercados, supermercado, mercado, trabalho, trabalhadores, comerciários, empregados, trabalhadores, denúncia, denunciar, direitos, sergipe, SE">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:image" content="">
+    <meta property="og:image" content="./img/logo.png">
     <meta property="og:title" content="Sindicato dos Empregados em Supermercados no Estado de Sergipe | SESES">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="PRODUTO NÃO PAGO EM SUA TOTALIDADE - PROPRIEDADE INTELECTUAL DE FELIPE BARRETO PASSOS, PROTEGIDO POR LEI.">
 
     <title>Sindicato dos Empregados em Supermercados no Estado de Sergipe | SESES</title>
 
-    <link rel="icon" href="">
+    <link rel="icon" href="./img/favicon.ico">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -59,13 +59,13 @@
     <main>
 
         <section id="banner-principal">
-            <div class="img-container">
+            <div class="img-container fade-in-element">
                 <img src="./img/supermercado.jpg" alt="Supermercado">
             </div>
             <div class="content">
                 <h1 class="fade-in-element">Sindicato dos Empregados<br>em Supermercados no<br>Estado de Sergipe</h1>
-                <p class="fade-in-element">Juntos lutamos pelos direitos e contra abusos ao trabalahador<br>no setor de supermercados e lojas de varejo.</p>
-                <div class="opcoes">
+                <p class="fade-in-element">Junte-se a nós e faça sua voz ser ouvida, fortalecendo nossa classe. Seja parte da mudança que você deseja ver!</p>
+                <div class="opcoes fade-in-element">
                     <button id="saiba-mais" href="#sobre">
                         <div>SAIBA MAIS</div>
                         <span class="line vertical1"></span>
@@ -76,9 +76,9 @@
                         <span class="line horizontal2"></span>
                     </button>
                     <div class="redes-sociais">
-                        <button><i class="fa-brands fa-facebook"></i></button>
-                        <button><i class="fa-brands fa-instagram"></i></button>
-                        <button><i class="fa-solid fa-phone"></i></button>
+                        <a href=""><button><i class="fa-brands fa-facebook"></i></button></a>
+                        <a href=""><button><i class="fa-brands fa-instagram"></i></button></a>
+                        <a onclick="window.open('tel:+557933333333');"><button ><i class="fa-solid fa-phone"></i></button></a>
                     </div>
                 </div>
             </div>
@@ -232,22 +232,22 @@
                     </form>
                 </div>
                 <div class="col-md-6">
-                    <button class="opcao fade-in-element" id="ligar" onclick="window.open('tel:+557933333333');">
+                    <button class="opcao fade-in-element" id="ligar" onclick="window.open('tel:+557932140906');">
                         <div class="icone">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div class="info">
-                            <p>(79) 3333-3333</p>
+                            <p>(79) 3214-0906</p>
                             <span>Ligue para mais informações</span>
                         </div>
                     </button>
-                    <button class="opcao fade-in-element" id="localizacao" onclick="window.open('https://www.google.com/maps/place/R.+Prof.+Jos%C3%A9+Le%C3%B4nidas+de+Menezes,+94+-+Grageru,+Aracaju+-+SE,+49025-640/@-10.9373716,-37.0521302,17z/data=!3m1!4b1!4m6!3m5!1s0x71ab392eb2713f3:0x85eb9e7e1df07560!8m2!3d-10.9373716!4d-37.0521302!16s%2Fg%2F11tdlcly37?entry=ttu');">
+                    <button class="opcao fade-in-element" id="localizacao" onclick="window.open('https://www.google.com/maps/place/Av.+Dr.+Carlos+Firpo,+284,+Centro,+Aracaju,+SE');">
                         <div class="icone">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="info">
-                            <p>Rua Prof. José Leônidas de Menezes, 94</p>
-                            <span>Bairro Grageru, Aracaju, SE</span>
+                            <p>Av. Dr. Carlos Firpo, 284</p>
+                            <span>Centro, Aracaju, SE</span>
                         </div>
                     </button>
                 </div>
@@ -347,13 +347,13 @@
                         <div class="content">
                             <h4>Contato —</h4>
                             <p></p>
-                            <p><i class="fa-solid fa-envelope"></i> seses@gmail.com</p>
-                            <p><i class="fa-solid fa-phone"></i> (79) 3333-3333</p>
+                            <p><i class="fa-solid fa-envelope"></i> adm@seses.com.br</p>
+                            <p><i class="fa-solid fa-phone"></i> (79) 3214-0906</p>
                         </div>
                         <div class="content">
                             <h4>Localização —</h4>
-                            <p>Avenida Sete de Setembro, 675</p>
-                            <p>Edf. Centerville, 7 andar, salas 701-703, Piedade, Salvador</p>
+                            <p>Av. Dr. Carlos Firpo, 284</p>
+                            <p>Centro, Aracaju-SE</p>
                         </div>
                     </div>
                     <div class="col-md-4 vip-box">
@@ -385,12 +385,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#sobre">SOBRE NÓS</a></li>
-                <li><a href="#sindicatos">SINDICATOS</a></li>
-                <li><a href="#galeria">GALERIA</a></li>
-                <li><a href="#contato">FALE CONOSCO</a></li>
-                <li><a href="denuncia.php">DENÚNCIA ANÔNIMA</a></li>
-                <li><a href="#FAQ">FAQ</a></li>
+                <li><span><a href="#sobre">SOBRE NÓS</a></span></li>
+                <li><span><a href="#sindicatos">SINDICATOS</a></span></li>
+                <li><span><a href="#galeria">GALERIA</a></span></li>
+                <li><span><a href="#contato">FALE CONOSCO</a></span></li>
+                <li><span><a href="denuncia.php">DENÚNCIA ANÔNIMA</a></span></li>
+                <li><span><a href="#FAQ">FAQ</a></span></li>
             </ul>
         </nav>
     </menu>
@@ -496,9 +496,9 @@
 
     <script src="./js/header-effect.js"></script>
     <script src="./js/toggle-menu.js"></script>
-    <script src="./js/fade-img.js"></script>
     <script src="./js/fade-in-element.js"></script>
     <script src="./js/scroll-to-section.js"></script>
+    <script src="./js/message-button.js"></script>
     <script src="./js/section-view.js"></script>
     <script src="./js/carrossel-galeria.js"></script>
     <script src="./js/album-popup.js"></script>

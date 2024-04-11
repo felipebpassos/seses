@@ -1,30 +1,39 @@
 $(document).ready(function(){
-    // Ao clicar no botão de toggle, mostra ou esconde o menu
+
+    const menuSpans = $("menu").find('span');
+
     $("#toggle-menu").click(function(){
-        $("menu").toggle();
+
+        menuSpans.each(function() {
+            $(this).addClass('animate');
+        });
         
-        // Verifica se o menu está sendo mostrado ou oculto
-        if ($("menu").is(":visible")) {
-            $("body").css("overflow", "hidden"); // Oculta o overflow do body
-        } else {
+        if ($("menu").hasClass("opened")) {
             $("body").css("overflow", ""); // Redefine o overflow do body para o padrão
+            $("menu").removeClass("opened"); // Remove a classe .opened quando o menu está fechado
+        } else {
+            $("body").css("overflow", "hidden"); // Oculta o overflow do body
+            $("menu").addClass("opened"); // Adiciona a classe .opened quando o menu está aberto
         }
     });
 
     $("menu .close-popup").click(function(){
-        $("menu").toggle();
+
+        menuSpans.each(function() {
+            $(this).removeClass('animate');
+        });
         
-        // Verifica se o menu está sendo mostrado ou oculto
-        if ($("menu").is(":visible")) {
-            $("body").css("overflow", "hidden"); // Oculta o overflow do body
-        } else {
-            $("body").css("overflow", ""); // Redefine o overflow do body para o padrão
-        }
+        $("body").css("overflow", ""); // Redefine o overflow do body para o padrão
+        $("menu").removeClass("opened"); // Remove a classe .opened quando o menu está fechado
     });
 
-    // Ao clicar em qualquer link do menu, esconde o menu
     $("menu li a").click(function(){
-        $("menu").hide();
+
+        menuSpans.each(function() {
+            $(this).removeClass('animate');
+        });
+
         $("body").css("overflow", ""); // Redefine o overflow do body para o padrão
+        $("menu").removeClass("opened"); // Remove a classe .opened quando o menu está fechado
     });
 });
